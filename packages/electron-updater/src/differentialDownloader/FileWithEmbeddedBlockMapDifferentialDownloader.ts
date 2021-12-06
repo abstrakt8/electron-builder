@@ -18,7 +18,7 @@ function readBlockMap(data: Buffer): BlockMap {
   return JSON.parse(inflateRawSync(data).toString())
 }
 
-async function readEmbeddedBlockMapData(file: string): Promise<BlockMap> {
+export async function readEmbeddedBlockMapData(file: string): Promise<BlockMap> {
   const fd = await open(file, "r")
   try {
     const fileSize = (await fstat(fd)).size
